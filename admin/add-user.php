@@ -1,10 +1,17 @@
 <?php include "header.php"; 
   if (isset($_POST['save'])) {
-    
+    include "config.php";
+
+    $first_name = mysqli_real_escape_string($con,$_POST['fname']);
+    $last_name = mysqli_real_escape_string($con,$_POST['lname']);
+    $user_name = mysqli_real_escape_string($con,$_POST['user']);
+    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $role = mysqli_real_escape_string($con,$_POST['role']);
+
+
+
+
 }
-
-
-
 
 ?>
 <div id="admin-content">
