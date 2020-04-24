@@ -5,8 +5,11 @@
     $first_name = mysqli_real_escape_string($con,$_POST['fname']);
     $last_name = mysqli_real_escape_string($con,$_POST['lname']);
     $user_name = mysqli_real_escape_string($con,$_POST['user']);
-    $password = mysqli_real_escape_string($con,$_POST['password']);
+    $password = mysqli_real_escape_string($con,md5($_POST['password']));
     $role = mysqli_real_escape_string($con,$_POST['role']);
+
+    $sql = "SELECT username FROM user WHERE username = '$user_name'";
+   $result = mysqli_query($conn,$$sql) or die("Error!!");
 
 
 
