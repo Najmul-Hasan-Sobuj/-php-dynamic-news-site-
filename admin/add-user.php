@@ -2,24 +2,23 @@
   if (isset($_POST['save'])) {
     include "config.php";
 
-    $first_name = mysqli_real_escape_string($con,$_POST['fname']);
-    $last_name = mysqli_real_escape_string($con,$_POST['lname']);
-    $user_name = mysqli_real_escape_string($con,$_POST['user']);
-    $password = mysqli_real_escape_string($con,md5($_POST['password']));
-    $role = mysqli_real_escape_string($con,$_POST['role']);
+    $first_name = mysqli_real_escape_string($conn,$_POST['fname']);
+    $last_name = mysqli_real_escape_string($conn,$_POST['lname']);
+    $user_name = mysqli_real_escape_string($conn,$_POST['user']);
+    $password = mysqli_real_escape_string($conn,md5($_POST['password']));
+    $role = mysqli_real_escape_string($conn,$_POST['role']);
 
     $sql = "SELECT username FROM user WHERE username = '$user_name'";
-   $result = mysqli_query($conn,$$sql) or die("Error!!");
+   $result = mysqli_query($conn,$sql) or die("Error!!");
 
    if (mysqli_num_rows($result)>0) {
        echo "username already exist";
    } else{
        $sql1 = "INSERT INTO user(first_name, last_name, username, password, role) VALUES ('$first_name','$last_name','$user_name','$password','$role')";
-       $result1 = mysqli_query($conn,$sql1);
+       if (mysqli_query($conn,$sql1)) {
+           header("location: http://localhost/news-template/admin/add-user.php");
+       }
    }
-
-
-
 
 }
 
