@@ -52,7 +52,8 @@
                             <td class='edit'><a href='update-user.php?id= <?php echo $row['user_id']?>'><i
                                         class='fa fa-edit'></i></a>
                             </td>
-                            <td class='delete'><a href='delete-user.php?id= <?php echo $row['user_id']?>'><i
+                            <td class='delete'><a href='delete-user.php?id= <?php echo $row['user_id']?>'
+                                    onclick="return confirm('Are you sure to delete?')"><i
                                         class='fa fa-trash-o'></i></a></td>
                         </tr>
                         <?php } ?>
