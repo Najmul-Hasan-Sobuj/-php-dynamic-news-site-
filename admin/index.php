@@ -22,14 +22,22 @@
                         if (isset($_POST['login'])) {
                             include "config.php";
                             $user_name = mysqli_real_escape_string($conn,$_POST['username']);
-                            $password = md5($conn,$_POST['password']);
-                            
-                        }
-                    
+                            $password = md5($_POST['password']);
+                            $sql = " SELECT user_id, username, role FROM user WHERE username = '$user_name' AND password = '$password'";
+                            $result = mysqli_query($conn,$sql) or die("query failed");
+                            if (mysqli_num_rows($result)>0) {
+                                while ($row =mysqli_fetch_assoc($result)) {
+                                   session_start();
+                                   $_SESSION["user_id"] = $row['user_id'];
+                                   $_SESSION["username"] = $row['username'];
+                                   $_SESSION["role"] = $row['role'];
+                                   header("location: http://localhost/news-template/admin/post.php");
+                                }
+                            }else {
+                                echo "username and password error";
+                            }    
+                        }    
                     ?>
-
-
-
                     <!-- Form Start -->
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
                         <div class="form-group">
