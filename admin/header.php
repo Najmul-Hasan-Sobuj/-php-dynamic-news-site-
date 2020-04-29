@@ -1,5 +1,4 @@
-<?php
-    session_start();
+<?php session_start();
     if (!isset($_SESSION["username"])) {
         header("location: http://localhost/news-template/admin/");
     }
@@ -52,12 +51,17 @@
                         <li>
                             <a href="post.php">Post</a>
                         </li>
+                        <?php
+    if ($_SESSION["role"] == 1) {
+?>
+
                         <li>
                             <a href="category.php">Category</a>
                         </li>
                         <li>
                             <a href="users.php">Users</a>
                         </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

@@ -1,4 +1,7 @@
 <?php include "header.php"; 
+ if ($_SESSION["role"] == 0) {
+    header("location: http://localhost/news-template/admin/post.php");
+}
       if (isset($_POST['submit'])) {
         include "config.php";
         $user_id = mysqli_real_escape_string($conn,$_POST['user_id']);
