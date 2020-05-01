@@ -20,7 +20,7 @@
              }
 
              if (empty($error) == true) {
-                 move_uploaded_file($tmp_name,"uplead/".$file_name);
+                 move_uploaded_file($tmp_name,"upload/".$file_name);
              }else {
                  print_r($error);
                  die();
