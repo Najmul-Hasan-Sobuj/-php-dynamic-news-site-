@@ -29,9 +29,9 @@
 
          session_start();
 
-         $tittle = mysqli_real_escape_string($conn,$_FILES['post_title']);
-         $description = mysqli_real_escape_string($conn,$_FILES['postdesc']);
-         $category = mysqli_real_escape_string($conn,$_FILES['category']);
+         $tittle = mysqli_real_escape_string($conn,$_POST['post_title']);
+         $description = mysqli_real_escape_string($conn,$_POST['postdesc']);
+         $category = mysqli_real_escape_string($conn,$_POST['category']);
          $date = date("d M, Y");
          $auther = $_SESSION['user_id'];
 
@@ -44,9 +44,5 @@
          }else {
              echo "query failed";
          }
-
-
-             
-
-
+         
    ?>

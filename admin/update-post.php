@@ -9,6 +9,7 @@
                 <h1 class="admin-heading">Update Post</h1>
             </div>
             <div class="col-md-offset-3 col-md-6">
+
                 <!-- Form for show edit-->
                 <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
                     <div class="form-group">
